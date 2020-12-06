@@ -1,0 +1,13 @@
+#:include screens/homescreen.kv
+#:include screens/loginscreen.kv
+
+GridLayout:
+    cols: 1
+    ScreenManager:
+        id: screen_manager
+        LoginScreen:
+            name: "login_screen"
+            id: "login_screen"
+        HomeScreen:
+            name: "home_screen"
+            id: "home_screen"
