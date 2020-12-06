@@ -1,0 +1,1 @@
+Project in Pycharm, using the Kivy library
