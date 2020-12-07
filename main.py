@@ -5,7 +5,6 @@ from kivy.uix.button import ButtonBehavior
 from kivy.uix.image import Image
 from kivy.uix.behaviors import ToggleButtonBehavior
 
-
 class LoginScreen(Screen):
     pass
 

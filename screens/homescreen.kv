@@ -36,6 +36,9 @@
                 size: 0.5 * root.width, 0.3 * root.height
                 pos: 0 * root.width, 0.6 * root.height
                 group: 'mode'
+                on_release:
+                    autoMode = 1
+                    print(autoMode)
 
             ToggleButton:
                 border: 0,0,0,0
@@ -45,6 +48,9 @@
                 size: 0.5 * root.width, 0.3 * root.height
                 pos: 0.5 * root.width, 0.6 * root.height
                 group: 'mode'
+                on_release:
+                    autoMode = 0
+                    print(autoMode)
 
         RelativeLayout:
             canvas:
@@ -65,15 +71,9 @@
                 size: 0.25 * root.width, 0.5 * root.height
                 pos: 0 * root.width, 0.1 * root.height
                 group: 'color'
-
-            ToggleButton:
-                border: 0,0,0,0
-                background_normal: 'icons/green_off_text@3x.png'
-                background_down: 'icons/green_on_text@3x.png'
-                size_hint: None, None
-                size: 0.25 * root.width, 0.5 * root.height
-                pos: 0.25 * root.width, 0.1 * root.height
-                group: 'color'
+                on_release:
+                    color = "b"
+                    print(color)
 
             ToggleButton:
                 border: 0,0,0,0
@@ -81,8 +81,23 @@
                 background_down: 'icons/cyan_on_text@3x.png'
                 size_hint: None, None
                 size: 0.25 * root.width, 0.5 * root.height
+                pos: 0.25 * root.width, 0.1 * root.height
+                group: 'color'
+                on_release:
+                    color = "c"
+                    print(color)
+
+            ToggleButton:
+                border: 0,0,0,0
+                background_normal: 'icons/green_off_text@3x.png'
+                background_down: 'icons/green_on_text@3x.png'
+                size_hint: None, None
+                size: 0.25 * root.width, 0.5 * root.height
                 pos: 0.5 * root.width, 0.1 * root.height
                 group: 'color'
+                on_release:
+                    color = "g"
+                    print(color)
 
             ToggleButton:
                 border: 0,0,0,0
@@ -92,6 +107,9 @@
                 size: 0.25 * root.width, 0.5 * root.height
                 pos: 0.75 * root.width, 0.1 * root.height
                 group: 'color'
+                on_release:
+                    color = "n"
+                    print(color)
 
         ImageButton:
             pos_hint: {"top": 0.1, "left":1}
