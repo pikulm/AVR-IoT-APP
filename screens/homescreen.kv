@@ -2,14 +2,21 @@
 
 <HomeScreen>:
     FloatLayout:
-
-        Button:
+        GridLayout:
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex("#E5E5E5")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            cols: 1
+            rows: 1
             pos_hint: {"top": 1, "left":1}
             size_hint: 1, 0.1
-            text:
-                "LOGOUT"
-            on_release:
-                app.change_screen("login_screen")
+            ImageButton:
+                source: "icons/logout@3x.png"
+                on_release:
+                    app.change_screen("login_screen")
 
         GridLayout:
             canvas:
@@ -22,23 +29,27 @@
             pos_hint: {"top": 0.9, "left":1}
             size_hint: 1, 0.3
             ToggleButton:
+                border: 0,0,0,0
+                background_normal: 'icons/auto_off@3x.png'
+                background_down: 'icons/auto_on@3x.png'
                 size_hint: None, None
                 size: 0.5 * root.width, 0.3 * root.height
                 pos: 0 * root.width, 0.6 * root.height
                 group: 'mode'
-                text: "AUTO MODE"
 
             ToggleButton:
+                border: 0,0,0,0
+                background_normal: 'icons/manual_off@3x.png'
+                background_down: 'icons/manual_on@3x.png'
                 size_hint: None, None
                 size: 0.5 * root.width, 0.3 * root.height
                 pos: 0.5 * root.width, 0.6 * root.height
                 group: 'mode'
-                text: "MANUAL MODE"
 
         RelativeLayout:
             canvas:
                 Color:
-                    rgb: utils.get_color_from_hex("#D1D1D1")
+                    rgb: utils.get_color_from_hex("#E5E5E5")
                 Rectangle:
                     size: self.size
                     pos: self.pos
@@ -48,8 +59,8 @@
 
             ToggleButton:
                 border: 0,0,0,0
-                background_normal: 'icons/blue_off.png'
-                background_down: 'icons/blue_on.png'
+                background_normal: 'icons/blue_off_text@3x.png'
+                background_down: 'icons/blue_on_text@3x.png'
                 size_hint: None, None
                 size: 0.25 * root.width, 0.5 * root.height
                 pos: 0 * root.width, 0.1 * root.height
@@ -57,8 +68,8 @@
 
             ToggleButton:
                 border: 0,0,0,0
-                background_normal: 'icons/green_off.png'
-                background_down: 'icons/green_on.png'
+                background_normal: 'icons/green_off_text@3x.png'
+                background_down: 'icons/green_on_text@3x.png'
                 size_hint: None, None
                 size: 0.25 * root.width, 0.5 * root.height
                 pos: 0.25 * root.width, 0.1 * root.height
@@ -66,8 +77,8 @@
 
             ToggleButton:
                 border: 0,0,0,0
-                background_normal: 'icons/cyan_off.png'
-                background_down: 'icons/cyan_on.png'
+                background_normal: 'icons/cyan_off_text@3x.png'
+                background_down: 'icons/cyan_on_text@3x.png'
                 size_hint: None, None
                 size: 0.25 * root.width, 0.5 * root.height
                 pos: 0.5 * root.width, 0.1 * root.height
@@ -75,17 +86,16 @@
 
             ToggleButton:
                 border: 0,0,0,0
-                background_normal: 'icons/no_off.png'
-                background_down: 'icons/no_on.png'
+                background_normal: 'icons/offlight_off_text@3x.png'
+                background_down: 'icons/offlight_on_text@3x.png'
                 size_hint: None, None
                 size: 0.25 * root.width, 0.5 * root.height
                 pos: 0.75 * root.width, 0.1 * root.height
                 group: 'color'
 
-        Button:
+        ImageButton:
             pos_hint: {"top": 0.1, "left":1}
             size_hint: 1, 0.1
-            text:
-                "SEND"
+            source: "icons/send@3x.png"
             on_release:
                 print("sending")
