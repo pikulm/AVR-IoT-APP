@@ -7,6 +7,7 @@ from kivy.uix.button import ButtonBehavior
 from kivy.uix.image import Image
 from kivy.uix.behaviors import ToggleButtonBehavior
 
+
 class LoginScreen(Screen):
     pass
 
@@ -43,5 +44,17 @@ class MainApp(App):
     def get_current_mode(self):
         print(mode)
         return mode
+
+    def set_current_color(self, color_selected):
+        global color
+        color = color_selected
+        print(color)
+        return color
+
+    def get_current_color(self):
+        print(color)
+        return color
+
+
 
 MainApp().run()

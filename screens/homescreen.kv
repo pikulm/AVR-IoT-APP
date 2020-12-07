@@ -70,8 +70,7 @@
                 pos: 0 * root.width, 0.1 * root.height
                 group: 'color'
                 on_release:
-                    color = "b"
-                    print(color)
+                    app.set_current_color('b')
 
             ToggleButton:
                 border: 0,0,0,0
@@ -82,8 +81,7 @@
                 pos: 0.25 * root.width, 0.1 * root.height
                 group: 'color'
                 on_release:
-                    color = "c"
-                    print(color)
+                    app.set_current_color('c')
 
             ToggleButton:
                 border: 0,0,0,0
@@ -94,8 +92,7 @@
                 pos: 0.5 * root.width, 0.1 * root.height
                 group: 'color'
                 on_release:
-                    color = "g"
-                    print(color)
+                    app.set_current_color('g')
 
             ToggleButton:
                 border: 0,0,0,0
@@ -106,12 +103,11 @@
                 pos: 0.75 * root.width, 0.1 * root.height
                 group: 'color'
                 on_release:
-                    color = "n"
-                    print(color)
+                    app.set_current_color('n')
 
         ImageButton:
             pos_hint: {"top": 0.1, "left":1}
             size_hint: 1, 0.1
             source: "icons/send@3x.png"
             on_release:
-                app.get_current_mode()
+                print("mode:", app.get_current_mode(), "color:", app.get_current_color())
