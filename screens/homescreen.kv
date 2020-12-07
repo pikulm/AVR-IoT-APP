@@ -37,8 +37,7 @@
                 pos: 0 * root.width, 0.6 * root.height
                 group: 'mode'
                 on_release:
-                    autoMode = 1
-                    print(autoMode)
+                    app.set_current_mode(1)
 
             ToggleButton:
                 border: 0,0,0,0
@@ -49,8 +48,7 @@
                 pos: 0.5 * root.width, 0.6 * root.height
                 group: 'mode'
                 on_release:
-                    autoMode = 0
-                    print(autoMode)
+                    app.set_current_mode(0)
 
         RelativeLayout:
             canvas:
@@ -116,4 +114,4 @@
             size_hint: 1, 0.1
             source: "icons/send@3x.png"
             on_release:
-                print("sending")
+                app.get_current_mode()

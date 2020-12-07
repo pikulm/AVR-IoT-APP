@@ -1,3 +1,5 @@
+from statistics import mode
+
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
@@ -23,6 +25,7 @@ class ToggleButton(ToggleButtonBehavior, Image):
 
 GUI = Builder.load_file("main.kv")
 
+
 class MainApp(App):
     def build(self):
         return GUI
@@ -30,5 +33,15 @@ class MainApp(App):
     def change_screen(self, screen_name):
         screen_manager = self.root.ids['screen_manager']
         screen_manager.current = screen_name
+
+    def set_current_mode(self, mode_selected):
+        global mode
+        mode = mode_selected
+        print(mode)
+        return mode
+
+    def get_current_mode(self):
+        print(mode)
+        return mode
 
 MainApp().run()
