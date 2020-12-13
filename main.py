@@ -6,6 +6,7 @@ from kivy.uix.screenmanager import Screen
 from kivy.uix.button import ButtonBehavior
 from kivy.uix.image import Image
 from kivy.uix.behaviors import ToggleButtonBehavior
+from google.cloud import iot_v1
 
 
 class LoginScreen(Screen):
@@ -54,6 +55,33 @@ class MainApp(App):
     def get_current_color(self):
         print(color)
         return color
+
+    def set_gcp_params(self):
+        self.config = "\"autoMode\":0, \"color\":\"g\""
+        return self.config
+
+    def set_config(self,
+            config,
+    ):
+        service_account_json = "/Users/magdalenapikul/.gcpkey/avr-iot-led-8dfc70c2f480.json"
+        project_id = "avr-iot-led"
+        cloud_region = "us-central1"
+        registry_id = "AVR-IOT"
+        device_id = "d01234019E0F3381BFE"
+        version = 0
+        config = self.config
+
+        print("Set device configuration")
+        client = iot_v1.DeviceManagerClient()
+        device_path = client.device_path(project_id, cloud_region, registry_id, device_id)
+
+        data = config.encode("utf-8")
+
+        return client.modify_cloud_to_device_config(
+            request={"name": device_path, "binary_data": data, "version_to_update": version}
+        )
+        # [END iot_set_device_config]
+
 
 
 
