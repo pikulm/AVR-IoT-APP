@@ -38,20 +38,10 @@ class MainApp(App):
 
     def set_current_mode(self, mode_selected):
         self.mode = mode_selected
-        print(self.mode)
-        return self.mode
-
-    def get_current_mode(self):
-        print(self.mode)
         return self.mode
 
     def set_current_color(self, color_selected):
         self.color = color_selected
-        print(self.color)
-        return self.color
-
-    def get_current_color(self):
-        print(self.color)
         return self.color
 
     def set_config(self):
