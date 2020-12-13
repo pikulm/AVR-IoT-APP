@@ -37,39 +37,31 @@ class MainApp(App):
         screen_manager.current = screen_name
 
     def set_current_mode(self, mode_selected):
-        global mode
-        mode = mode_selected
-        print(mode)
-        return mode
+        self.mode = mode_selected
+        print(self.mode)
+        return self.mode
 
     def get_current_mode(self):
-        print(mode)
-        return mode
+        print(self.mode)
+        return self.mode
 
     def set_current_color(self, color_selected):
-        global color
-        color = color_selected
-        print(color)
-        return color
+        self.color = color_selected
+        print(self.color)
+        return self.color
 
     def get_current_color(self):
-        print(color)
-        return color
+        print(self.color)
+        return self.color
 
-    def set_gcp_params(self):
-        self.config = "\"autoMode\":0, \"color\":\"g\""
-        return self.config
-
-    def set_config(self,
-            config,
-    ):
+    def set_config(self):
         service_account_json = "/Users/magdalenapikul/.gcpkey/avr-iot-led-8dfc70c2f480.json"
         project_id = "avr-iot-led"
         cloud_region = "us-central1"
         registry_id = "AVR-IOT"
         device_id = "d01234019E0F3381BFE"
         version = 0
-        config = self.config
+        config = "\"autoMode\":{mode}, \"color\":\"{color}\"".format(mode=self.mode, color=self.color)
 
         print("Set device configuration")
         client = iot_v1.DeviceManagerClient()
