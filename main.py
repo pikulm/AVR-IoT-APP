@@ -32,9 +32,12 @@ class MainApp(App):
     def build(self):
         return GUI
 
-    def change_screen(self, screen_name):
+    def change_screen(self):
         screen_manager = self.root.ids['screen_manager']
-        screen_manager.current = screen_name
+        if self.verification_result == "ok":
+            screen_manager.current = "home_screen"
+        else:
+            screen_manager.current = "login_screen"
 
     def set_current_mode(self, mode_selected):
         self.mode = mode_selected
@@ -64,7 +67,17 @@ class MainApp(App):
         )
         # [END iot_set_device_config]
 
+    def set_id_to_verify(self, id_to_verify):
+        self.id_to_verify = id_to_verify
+        print(self.id_to_verify)
+        return self.id_to_verify
 
+    def verify_id(self):
+        if self.id_to_verify == "a":
+            self.verification_result = "ok"
+        else:
+            self.verification_result = "bad"
 
+        return(self.verification_result)
 
 MainApp().run()

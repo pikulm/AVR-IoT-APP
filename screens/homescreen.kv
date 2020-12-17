@@ -16,7 +16,9 @@
             ImageButton:
                 source: "icons/logout@3x.png"
                 on_release:
-                    app.change_screen("login_screen")
+                    app.set_id_to_verify(0)
+                    app.verify_id()
+                    app.change_screen()
 
         GridLayout:
             canvas:

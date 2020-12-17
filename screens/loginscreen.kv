@@ -33,9 +33,9 @@
             TextInput:
                 pos_hint: {"top":0.8, "left":1}
                 size_hint: 1, 0.4
-                id: login_id
+                id: id_to_verify
                 password: True
-                hint_text: "login ID"
+                hint_text: "verify your ID"
 
         GridLayout:
             canvas:
@@ -52,4 +52,6 @@
             size_hint: 1, 0.1
             source: "icons/login@3x.png"
             on_release:
-                app.change_screen("home_screen")
+                app.set_id_to_verify(id_to_verify.text)
+                app.verify_id()
+                app.change_screen()
