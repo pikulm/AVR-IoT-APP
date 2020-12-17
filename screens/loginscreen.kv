@@ -31,6 +31,8 @@
             pos_hint: {"top": 0.6, "left":1}
             size_hint: 1, 0.3
             TextInput:
+                text: ""
+                background_color: utils.get_color_from_hex("#E5E5E5")
                 pos_hint: {"top":0.8, "left":1}
                 size_hint: 1, 0.4
                 id: id_to_verify
@@ -53,5 +55,7 @@
             source: "icons/login@3x.png"
             on_release:
                 app.set_id_to_verify(id_to_verify.text)
+                app.hash_id()
                 app.verify_id()
                 app.change_screen()
+

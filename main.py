@@ -7,7 +7,7 @@ from kivy.uix.button import ButtonBehavior
 from kivy.uix.image import Image
 from kivy.uix.behaviors import ToggleButtonBehavior
 from google.cloud import iot_v1
-
+import hashlib
 
 class LoginScreen(Screen):
     pass
@@ -69,11 +69,14 @@ class MainApp(App):
 
     def set_id_to_verify(self, id_to_verify):
         self.id_to_verify = id_to_verify
-        print(self.id_to_verify)
         return self.id_to_verify
 
+    def hash_id(self):
+        self.hashed_id = hashlib.sha256(self.id_to_verify.encode('utf-8')).hexdigest()
+        return self.hashed_id
+
     def verify_id(self):
-        if self.id_to_verify == "a":
+        if self.hashed_id == "7e1b9f2c3a8cfc872871992b22922083698b9ad7386df0b059c1cd14d2148b7d":
             self.verification_result = "ok"
         else:
             self.verification_result = "bad"
