@@ -71,12 +71,19 @@ class MainApp(App):
         self.id_to_verify = id_to_verify
         return self.id_to_verify
 
-    def hash_id(self):
+    def set_password_to_verify(self, password_to_verify):
+        self.password_to_verify = password_to_verify
+        return self.password_to_verify
+
+    def hash_login(self):
+        self.hashed_password = hashlib.sha256(self.password_to_verify.encode('utf-8')).hexdigest()
         self.hashed_id = hashlib.sha256(self.id_to_verify.encode('utf-8')).hexdigest()
+        return self.hashed_password
         return self.hashed_id
 
-    def verify_id(self):
-        if self.hashed_id == "7da5efde4297e875a7abea98298528692f44d3592e666a2a0ac780b37efcf76d":
+    def verify_login(self):
+        if self.hashed_id == "7e1c9d8563d1e9582bf4303df7d7e0c655d28960db12be775a5c3b071a60e688"\
+        and self.hashed_password == "fe27ac4eb0f053a51ff724ef445f7f48acd653d7544477abfe788b1414d53f32":
             self.verification_result = "ok"
         else:
             self.verification_result = "bad"

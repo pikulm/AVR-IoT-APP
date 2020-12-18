@@ -34,10 +34,17 @@
                 text: ""
                 background_color: utils.get_color_from_hex("#E5E5E5")
                 pos_hint: {"top":0.8, "left":1}
-                size_hint: 1, 0.4
+                size_hint: 1, 0.2
                 id: id_to_verify
+                hint_text: "project ID"
+            TextInput:
+                text: ""
+                background_color: utils.get_color_from_hex("#E5E5E5")
+                pos_hint: {"top":0.5, "left":1}
+                size_hint: 1, 0.2
+                id: password_to_verify
                 password: True
-                hint_text: "verify your ID"
+                hint_text: "project password"
 
         GridLayout:
             canvas:
@@ -55,7 +62,8 @@
             source: "icons/login@3x.png"
             on_release:
                 app.set_id_to_verify(id_to_verify.text)
-                app.hash_id()
-                app.verify_id()
+                app.set_password_to_verify(password_to_verify.text)
+                app.hash_login()
+                app.verify_login()
                 app.change_screen()
 

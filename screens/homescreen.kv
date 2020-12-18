@@ -17,8 +17,9 @@
                 source: "icons/logout@3x.png"
                 on_release:
                     app.set_id_to_verify("")
-                    app.hash_id()
-                    app.verify_id()
+                    app.set_password_to_verify("")
+                    app.hash_login()
+                    app.verify_login()
                     app.change_screen()
 
 
