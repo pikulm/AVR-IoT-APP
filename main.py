@@ -76,7 +76,7 @@ class MainApp(App):
         return self.hashed_id
 
     def verify_id(self):
-        if self.hashed_id == "7e1b9f2c3a8cfc872871992b22922083698b9ad7386df0b059c1cd14d2148b7d":
+        if self.hashed_id == "7da5efde4297e875a7abea98298528692f44d3592e666a2a0ac780b37efcf76d":
             self.verification_result = "ok"
         else:
             self.verification_result = "bad"
