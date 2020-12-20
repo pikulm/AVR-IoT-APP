@@ -69,3 +69,5 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
+# Private key
+/avr-iot-led-8dfc70c2f480.json
