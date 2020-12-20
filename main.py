@@ -8,6 +8,8 @@ from kivy.uix.image import Image
 from kivy.uix.behaviors import ToggleButtonBehavior
 from google.cloud import iot_v1
 import hashlib
+import os
+os.environ['GOOGLE_APPLICATION_CREDENTIALS']="avr-iot-led-8dfc70c2f480.json"
 
 class LoginScreen(Screen):
     pass
@@ -48,7 +50,7 @@ class MainApp(App):
         return self.color
 
     def set_config(self):
-        service_account_json = "/Users/magdalenapikul/.gcpkey/avr-iot-led-8dfc70c2f480.json"
+        service_account_json = "avr-iot-led-8dfc70c2f480.json"
         project_id = "avr-iot-led"
         cloud_region = "us-central1"
         registry_id = "AVR-IOT"
